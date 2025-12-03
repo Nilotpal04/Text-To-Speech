@@ -32,10 +32,17 @@ function loadVoices() {
     console.log(`Loaded ${voices.length} voices`);
 }
 
+function updateCharCount(){
+    const count = textInput.value.length
+    charCount.textContent = count
+}
 
 function init() {
     loadVoices();
     synth.addEventListener("voiceschanged", loadVoices)
+
+    textInput.addEventListener("input", updateCharCount)
+    updateCharCount();
 }
 
 document.addEventListener("DOMContentLoaded", init)
