@@ -9,3 +9,33 @@ const stopBtn = document.getElementById("stop-btn")
 const charCount = document.getElementById("char-count")
 const status = document.getElementById("status")
 const statusText = document.getElementById("status-text")
+
+const synth = window.speechSynthesis
+let voices = []
+
+function loadVoices() {
+    voices = synth.getVoices();
+
+    if (voices.length === 0) {
+        return;
+    }
+
+    voiceSelect.innerHTML = "";
+
+    voices.forEach((voice, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.textContent = `${voice.name} (${voice.lang})`;
+        voiceSelect.appendChild(option);
+    });
+
+    console.log(`Loaded ${voices.length} voices`);
+}
+
+
+function init() {
+    loadVoices();
+    synth.addEventListener("voiceschanged", loadVoices)
+}
+
+document.addEventListener("DOMContentLoaded", init)
