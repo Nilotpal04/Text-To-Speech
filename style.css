@@ -155,7 +155,7 @@ status {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #43a047; /* Green active */
+  background: #43a047; 
 }
 
 #status-text {
