@@ -23,22 +23,36 @@ header{
 }
 
 
-.container{
-    max-width: 800px;
-    margin: auto;
+.instructions {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  overflow: hidden; 
+  max-width: 800px;
+  margin: 20px auto 30px auto;
+  padding: 0; 
 }
 
-.instructions{
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    margin-bottom: 25px;
+
+.instructions h3 {
+  margin: 0;
+  padding: 14px 20px;
+  background: #1a73e8; 
+  color: white;
+  font-weight: 500;
+  font-size: 1.15rem;
 }
 
-.instructions h3{
-    font-weight: 500;
-    margin-bottom: 10px;
+.instructions ol {
+  padding: 20px 25px;
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.instructions li {
+  margin-bottom: 8px;
 }
 
 .card {
@@ -143,12 +157,17 @@ button {
   background: #cfcfcf;
 }
 
-status {
+.status {
   max-width: 800px;
-  margin: 10px auto;
+  margin: 20px auto;
+  padding: 12px 18px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  justify-content: center; 
 }
 
 .status-dot {
@@ -159,7 +178,7 @@ status {
 }
 
 #status-text {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #444;
 }
 
