@@ -8,6 +8,8 @@
   <img src="https://img.shields.io/badge/Made%20With❤️-000000?style=for-the-badge">
 </p>
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://nilotpal04.github.io/Text-To-Speech/)
+
 A clean and simple Material UI–styled web application that converts user-entered text into speech using the **Web Speech API**.  
 Built with **HTML, CSS, and JavaScript**.
 
@@ -68,5 +70,6 @@ Or run a simple local server:
 
 ```bash
 live-server
+
 
 
