@@ -105,7 +105,6 @@ function stop() {
 
 function init() {
   loadVoices();
-  synth.onvoiceschanged = loadVoices;
   synth.addEventListener("voiceschanged", loadVoices);
   textInput.addEventListener("input", updateCharCount);
 
