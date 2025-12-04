@@ -18,7 +18,6 @@ function loadVoices() {
 
   if (voices.length === 0) {
     console.log("voices not loaded yet, waiting....");
-    return;
   }
 
   voiceSelect.innerHTML = "";
@@ -94,6 +93,7 @@ function stop() {
 
 function init() {
   loadVoices();
+  synth.onvoiceschanged = loadVoices;
   synth.addEventListener("voiceschanged", loadVoices);
   textInput.addEventListener("input", updateCharCount);
 
