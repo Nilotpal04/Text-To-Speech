@@ -97,6 +97,17 @@ function init() {
   synth.addEventListener("voiceschanged", loadVoices);
   textInput.addEventListener("input", updateCharCount);
 
+  speedSlider.addEventListener("input", () => {
+    speedValue.textContent = speedSlider.value;
+  })
+
+  pitchSlider.addEventListener("input", () => {
+    pitchValue.textContent = pitchSlider.value;
+  })
+
+  speedValue.textContent = speedSlider.value;
+  pitchValue.textContent = pitchSlider.value;
+  
   speakBtn.addEventListener("click", speak);
   stopBtn.addEventListener("click", stop);
   updateCharCount();
