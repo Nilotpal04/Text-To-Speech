@@ -10,6 +10,8 @@ const charCount = document.getElementById("char-count");
 const statusBox = document.getElementById("status");
 const statusText = document.getElementById("status-text");
 
+let isManuallyStopped = false;
+
 const synth = window.speechSynthesis;
 let voices = [];
 
@@ -63,15 +65,22 @@ function speak() {
   };
 
   utterance.onend = () => {
+    isManuallyStopped = false;
     statusBox.classList.remove("speaking");
     statusText.textContent = "Ready";
+
     speakBtn.disabled = false;
     stopBtn.disabled = true;
   };
-
   utterance.onerror = (event) => {
+    if (isManuallyStopped) {
+      isManuallyStopped = false;
+      return;
+    }
+
     console.error("Speech synthesis error:", event);
     statusText.textContent = "Error occurred";
+
     speakBtn.disabled = false;
     stopBtn.disabled = true;
   };
@@ -84,9 +93,12 @@ function speak() {
 }
 
 function stop() {
+  isManuallyStopped = true;
   synth.cancel();
+
   statusBox.classList.remove("speaking");
   statusText.textContent = "Stopped";
+
   speakBtn.disabled = false;
   stopBtn.disabled = true;
 }
@@ -99,19 +111,19 @@ function init() {
 
   speedSlider.addEventListener("input", () => {
     speedValue.textContent = speedSlider.value;
-  })
+  });
 
   pitchSlider.addEventListener("input", () => {
     pitchValue.textContent = pitchSlider.value;
-  })
+  });
 
   speedValue.textContent = speedSlider.value;
   pitchValue.textContent = pitchSlider.value;
-  
+
   speakBtn.addEventListener("click", speak);
   stopBtn.addEventListener("click", stop);
   updateCharCount();
-  stopBtn.disabled = true
+  stopBtn.disabled = true;
 }
 
 document.addEventListener("DOMContentLoaded", init);
